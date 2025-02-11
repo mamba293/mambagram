@@ -1,0 +1,14 @@
+.login_button{
+  background: linear-gradient(to right, #242dcc, #4032cc);
+  color: #fff;
+  margin-top: 45px;
+  border-radius: 8px;
+  padding: 10px 80px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.login_button:hover{
+  background: linear-gradient(to right, #1119ae, #332a8f);
+}
+
