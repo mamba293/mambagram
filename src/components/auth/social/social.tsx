@@ -13,7 +13,10 @@ export const Social = () => {
             variant="outline"
             onClick={() => {}}
             >
-              <FcGoogle className="w-5 h-5"/> 
+              <FcGoogle className="w-8 h-8" style={{
+                  width: 24,
+                  height: 24
+              }}/> 
             </Button>
             <Button
             size="lg"
@@ -21,10 +24,12 @@ export const Social = () => {
             variant="outline"
             onClick={() => {}}
             >
-              <FaInstagram className="w-5 h-5" style={{
+              <FaInstagram className="w-8 h-8" style={{
                 color: '#fff',
                 background: 'radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)',
-                borderRadius: '5px'
+                borderRadius: '8px',
+                width: 24,
+                height: 24
               }}
               />
             </Button>

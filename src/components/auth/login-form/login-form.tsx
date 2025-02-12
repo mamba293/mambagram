@@ -1,11 +1,14 @@
 'use client'
 
 import * as z from "zod";
+import {startTransition, useState, useTransition} from "react";
+import FormError from "@/components/form-error";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "@/schemas";
 import {Montserrat} from "next/font/google";
 import {cn} from "@/lib/utils";
+import {login} from "@/actions/login";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -27,6 +30,10 @@ import CardWrapper from "@/components/auth/card-wraper/card-wraper";
 import { Button } from "@/components/ui/button";
 
 const LoginForm = () => {
+    const [isPending, startTransition] = useTransition();
+    const [error, setError] = useState<string | undefined>();
+
+
     const form = useForm<z.infer<typeof loginSchema>>({
         resolver: zodResolver(loginSchema),
         defaultValues: {
@@ -36,8 +43,16 @@ const LoginForm = () => {
     });
 
     const onSubmit = (data: z.infer<typeof loginSchema>) => {
-        console.log(data);
-    }
+        setError("");
+        
+        startTransition(()=>{
+                login(data)
+                .then((data)=>{
+                    setError(data.error)
+                })
+        });
+    };
+
     return (
         <CardWrapper
             headerLabel="Mambagram"
@@ -59,6 +74,7 @@ const LoginForm = () => {
                                 <FormLabel className="text-gray-500">Email</FormLabel>
                                 <FormControl>
                                     <Input 
+                                    disabled={isPending}
                                     type="email" 
                                     {...field} 
                                     placeholder="enter@youremail.com"
@@ -81,6 +97,7 @@ const LoginForm = () => {
                                 <FormLabel className="text-gray-500">Password</FormLabel>
                                 <FormControl>
                                     <Input 
+                                    disabled={isPending}
                                     type="password" 
                                     {...field} 
                                     placeholder="12345"
@@ -94,14 +111,19 @@ const LoginForm = () => {
                             </FormItem>
                         )}
                         />
+                        <FormError message={error}/>
                     </div>
-
-                        <Button className="w-full bg-gradient-to-r from-blue-700 to-purple-500 hover:bg-gradient-to-r hover:from-blue-800 hover:to-purple-600" type="submit">
+                        <Button 
+                        className="w-full bg-gradient-to-r 
+                        from-blue-700 to-purple-500 hover:bg-gradient-to-r 
+                        hover:from-blue-800 hover:to-purple-600" 
+                        type="submit"
+                        disabled={isPending}
+                        >
                             Login
                         </Button>
-                    
                 </form>
-            </Form>
+                </Form>
         </CardWrapper>
     )
 }

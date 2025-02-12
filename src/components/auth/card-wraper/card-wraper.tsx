@@ -28,7 +28,7 @@ const CardWrapper = ({
 
 }: CardWrapperProps) => {
     return (
-        <Card className="w-[400px] shadow-lg">
+        <Card className="w-[400px] shadow-lg ">
           <CardHeader>
             <Header label={headerLabel} paragraph={headerParagraph}/>
           </CardHeader>
@@ -36,7 +36,7 @@ const CardWrapper = ({
            {children}
           </CardContent>
           {showSocial && (
-            <CardFooter>
+            <CardFooter className="flex justify-between items-center">
               <Social/>
             </CardFooter>
           )}
