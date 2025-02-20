@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { registerScema } from "@/schemas";
 import {Montserrat} from "next/font/google";
 import {cn} from "@/lib/utils";
-import {login} from "@/actions/login";
+import {register} from "@/actions/register";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -47,13 +47,11 @@ const RegisterForm = () => {
         setError("");
         
         startTransition(()=>{
-                login(data)
+                register(data)
                 .then((data)=>{
                     setError(data.error)
                 })
         });
-
-        console.log(data);
     };
 
     return (

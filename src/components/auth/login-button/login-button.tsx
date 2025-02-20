@@ -3,12 +3,12 @@
 import styles from "./login.button.module.css";
 import { useRouter } from "next/navigation";
 
-
 interface LoginButtonProps {
   children: React.ReactNode;
   mode?: "redirect" | "modal";
   asChild?: boolean;
 }
+
 
 
 const LoginButton = ({
@@ -19,6 +19,7 @@ const LoginButton = ({
   const router = useRouter();
 
   const onClick =() =>{
+    
     router.push("/auth/login");
   }
 
