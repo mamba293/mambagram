@@ -46,12 +46,17 @@ const RegisterForm = () => {
     const onSubmit = (data: z.infer<typeof registerScema>) => {
         setError("");
         
-        startTransition(()=>{
-                register(data)
-                .then((data)=>{
-                    setError(data.error)
-                })
-        });
+        startTransition(() => {
+            register(data)
+              .then((response) => {
+                if (response) {
+                  setError(response.error); // Проверяем, что response существует
+                }
+              })
+              .catch(() => {
+                setError("Something went wrong!");
+              });
+          });
     };
 
     return (
@@ -123,6 +128,7 @@ const RegisterForm = () => {
                                                 <Input 
                                                 disabled={isPending}
                                                 type="password" 
+                                                autoComplete="new-password"
                                                 {...field} 
                                                 placeholder="12345"
                                                 className={cn(

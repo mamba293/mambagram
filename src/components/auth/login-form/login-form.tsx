@@ -1,7 +1,7 @@
 'use client'
 
 import * as z from "zod";
-import {startTransition, useState, useTransition} from "react";
+import {useState, useTransition} from "react";
 import FormError from "@/components/form-error";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -33,7 +33,6 @@ const LoginForm = () => {
     const [isPending, startTransition] = useTransition();
     const [error, setError] = useState<string | undefined>();
 
-
     const form = useForm<z.infer<typeof loginSchema>>({
         resolver: zodResolver(loginSchema),
         defaultValues: {
@@ -42,6 +41,7 @@ const LoginForm = () => {
         },
     });
 
+ 
     const onSubmit = (data: z.infer<typeof loginSchema>) => {
         setError("");
         
@@ -92,21 +92,22 @@ const LoginForm = () => {
                         <FormField
                             control={form.control}
                             name="password"
-                        render={({field}) => (
+                            render={({field}) => (
                             <FormItem className={cn(montserrat.className)}>
                                 <FormLabel className="text-gray-500">Password</FormLabel>
-                                <FormControl>
-                                    <Input 
-                                    disabled={isPending}
-                                    type="password" 
-                                    {...field} 
-                                    placeholder="12345"
-                                    className={cn(
-                                        "font-normal",
-                                        montserrat.className
-                                    )}
-                                    />
-                                </FormControl>
+                                    <FormControl>
+                                        <Input 
+                                        disabled={isPending}
+                                        type="password" 
+                                        autoComplete="current-password"
+                                        {...field} 
+                                        placeholder="12345"
+                                        className={cn(
+                                            "font-normal",
+                                            montserrat.className
+                                        )}
+                                        />
+                                    </FormControl>
                                 <FormMessage className={cn(montserrat.className)} />
                             </FormItem>
                         )}
@@ -114,15 +115,15 @@ const LoginForm = () => {
                         <FormError message={error}/>
                     </div>
                         <Button 
-                        className="w-full bg-gradient-to-r 
-                        from-blue-700 to-purple-500 hover:bg-gradient-to-r 
-                        hover:from-blue-800 hover:to-purple-600" 
-                        type="submit"
-                        disabled={isPending}
+                            className="w-full bg-gradient-to-r 
+                            from-blue-700 to-purple-500 hover:bg-gradient-to-r 
+                            hover:from-blue-800 hover:to-purple-600" 
+                            type="submit"
+                            disabled={isPending}
                         >
                             Login
                         </Button>
-                </form>
+                    </form>
                 </Form>
         </CardWrapper>
     )
