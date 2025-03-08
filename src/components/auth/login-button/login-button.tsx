@@ -19,7 +19,6 @@ const LoginButton = ({
   const router = useRouter();
 
   const onClick =() =>{
-    
     router.push("/auth/login");
   }
 

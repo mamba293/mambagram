@@ -1,7 +1,7 @@
 import Image from "next/image";
 import LoginButton from "@/components/auth/login-button/login-button";
 
-export default function Home() {
+export default function Landing() {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <div className="w-fit">

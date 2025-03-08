@@ -6,9 +6,9 @@ import FormError from "@/components/form-error";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "@/schemas";
-import {Montserrat} from "next/font/google";
-import {cn} from "@/lib/utils";
-import {login} from "@/actions/login";
+import { Montserrat } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { login } from "@/actions/login";
 
 const montserrat = Montserrat({
     subsets: ["latin"],

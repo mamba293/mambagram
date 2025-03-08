@@ -1,0 +1,5 @@
+.border_gradient {
+  background: linear-gradient(45deg, #3b82f6, #9333ea); /* Градиент */
+  padding: 3px; /* Толщина обводки */
+  border-radius: 50%; /* Круглая форма */
+}
