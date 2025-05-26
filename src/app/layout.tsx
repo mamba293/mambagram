@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
+import SideNav from "@/components/sidebar/sidenav";
 
 export const metadata: Metadata = {
   title: "Mambagram",

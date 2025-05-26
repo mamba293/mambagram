@@ -15,29 +15,28 @@ const montserrat = Montserrat({
 
 const SideNav = () => {
   return (
-  <>
-        <div className="flex pt-5 pl-5 pb-10">
-          <Link href=""> 
-              <h1 
-              className={`text-3xl font-bold text-transparent 
-              bg-clip-text bg-gradient-to-r 
-              from-blue-700 to-purple-600 leading-relaxed ` }
-              >
-                Mambagram
-              </h1>
-            </Link>
-        </div>
-                
-        <div className="flex flex-col pt-5 gap-1">
-          <SideNavButton icon={IoMdHome} label="Home" route="/home"  size={30}/>
-          <SideNavButton icon={IoMdSearch} label="Search" route="/settings" size={30}/>
-          <SideNavButton icon={IoMdFilm} label="Reels" route="/profile" size={30}/>
-          <SideNavButton icon={LuMessageCircle} label="Messages" route="/profile" size={30} />
-          <SideNavButton icon={IoPersonOutline} label="Profile" route="/profile" size={30} />
-        </div>
-  </>
-
-  )
+      <div> 
+            <div className="flex pt-5 pl-5 pb-10">
+              <Link href=""> 
+                  <h1 
+                  className={`text-3xl font-bold text-transparent 
+                  bg-clip-text bg-gradient-to-r 
+                  from-blue-700 to-purple-600 leading-relaxed ` }
+                  >
+                    Mambagram
+                  </h1>
+                </Link>
+            </div>
+                    
+            <div className="flex flex-col pt-5 gap-1">
+              <SideNavButton icon={IoMdHome} label="Home" route="/home"  size={30}/>
+              <SideNavButton icon={IoMdSearch} label="Search" route="/settings" size={30}/>
+              <SideNavButton icon={IoMdFilm} label="Reels" route="/profile" size={30}/>
+              <SideNavButton icon={LuMessageCircle} label="Messages" route="/profile" size={30} />
+              <SideNavButton icon={IoPersonOutline} label="Profile" route="/profile" size={30} />
+            </div>
+      </div>
+  );
 } 
 
 export default SideNav;

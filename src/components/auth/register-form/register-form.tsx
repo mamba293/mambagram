@@ -64,7 +64,7 @@ const RegisterForm = () => {
             headerLabel="Mambagram"
             headerParagraph="Create an account?"
             backButtonLabel="Already sign up"
-            backButtonHref="/auth/login"
+            backButtonHref="/login"
             showSocial
         >
             <Form {...form}>
