@@ -14,7 +14,7 @@ const montserrat = Montserrat({
 interface SideNavButtonProps {
   icon: IconType; 
   label: string; 
-  route: string; 
+  route?: string; 
   size: number;
 }
 

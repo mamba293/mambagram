@@ -7,10 +7,12 @@ export default function MainLayout({
 }>) {
   return (
     <main className="flex flex-row">
-      <div className="">
-        <SideNav/>
+      <div className="fixed h-screen">
+        <SideNav />
       </div>
-      {children}
+      <div className="ml-32">
+        {children}
+      </div>
     </main>
   );
 }

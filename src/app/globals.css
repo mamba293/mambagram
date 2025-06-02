@@ -67,5 +67,19 @@
 }
 
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
+/* Reset margin & padding */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* предотвратить "уход" контента вправо */
+}
 
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
