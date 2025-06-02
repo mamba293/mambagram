@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Slider from "react-slick";
 import { Avatar } from "antd";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -93,27 +92,21 @@ const settings = {
 
 export default function StoryCarousel() {
   return (
-    <div className="w-full max-w-[700px] mt-10 ">
-      <Slider {...settings}>
+     <div className="w-full max-w-[700px] mt-10 overflow-x-auto scrollbar-hide">
+      <div className="flex gap-8 px-2" style={{ minWidth: "fit-content" }}>
         {stories.map((story) => (
-          <button>
-            {" "}
-            <div key={story.id} className="px-1">
-              <div
-                className="flex flex-col items-center cursor-pointer"
-                // onClick={() => setSelectedStory(story)}
-              >
-                <img
-                  src={story.img}
-                  alt={story.name}
-                  className="w-16 h-16 rounded-full p-0.5 border-2 border-blue-400 object-cover"
-                />
-                <p className="text-sm mt-1 text-center">{story.name}</p>
-              </div>
+          <button key={story.id} className="flex-shrink-0">
+            <div className="flex flex-col items-center cursor-pointer">
+              <Avatar
+                src={story.img}
+                alt={story.name}
+                className="w-16 h-16 rounded-full p-0.5 border-2 border-blue-400 object-cover"
+              />
+              <p className="text-sm mt-1 text-center">{story.name}</p>
             </div>
           </button>
         ))}
-      </Slider>
+      </div>
     </div>
   );
 }

@@ -1,13 +1,32 @@
 "use client";
 
 import { useSearchDrawer } from "@/context/SearchDrawerContext";
-import { Button, Drawer } from "antd";
-import { useEffect, useState } from "react";
-import useGetPosts from "../post/useGetPost";
+import { Drawer, Input } from "antd";
+import { useState } from "react";
+import type { GetProps } from "antd";
+
+type SearchProps = GetProps<typeof Input.Search>;
+
+const { Search } = Input;
+
+const data = [
+  "",
+]
+
+
+
+const mockUsers = {};
 
 export default function SearchDrawer() {
   const [loading, setLoading] = useState<boolean>(false);
   const { isOpen, closeDrawer } = useSearchDrawer();
+
+  const [searcValue, setSearchValue] = useState<string>('');
+  const [userList, setUserList] = useState(data)
+
+  const onSearch: SearchProps["onSearch"] = (value) =>{
+    setSearchValue(value)
+  };
 
   return (
     <Drawer
@@ -21,9 +40,12 @@ export default function SearchDrawer() {
       mask={false}
       getContainer={false}
     >
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
+      <Search
+        placeholder="input search text"
+        onSearch={onSearch}
+        enterButton="Search"
+        // loading = {true}
+      />
     </Drawer>
   );
 }
