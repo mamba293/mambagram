@@ -92,8 +92,8 @@ const settings = {
 
 export default function StoryCarousel() {
   return (
-     <div className="w-full max-w-[700px] mt-10 overflow-x-auto scrollbar-hide">
-      <div className="flex gap-8 px-2" style={{ minWidth: "fit-content" }}>
+     <div className="w-full max-w-[680px] mt-10 overflow-x-auto scrollbar-hide">
+      <div className="flex gap-8 pl-4 "  style={{ minWidth: "fit-content" }}>
         {stories.map((story) => (
           <button key={story.id} className="flex-shrink-0">
             <div className="flex flex-col items-center cursor-pointer">

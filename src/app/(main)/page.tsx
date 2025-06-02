@@ -29,7 +29,7 @@ function MainPage() {
   return (
     <div className="flex flex-col ml-32 ">
       
-      <div className="flex align-middle pb-10">
+      <div className="flex align-middle pb-10 ml-6">
         <StoryCarousel />
       </div>
       <div className="mx-10 ">
