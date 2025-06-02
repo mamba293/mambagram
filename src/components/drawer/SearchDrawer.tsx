@@ -1,19 +1,13 @@
+"use client";
+
+import { useSearchDrawer } from "@/context/SearchDrawerContext";
 import { Button, Drawer } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useGetPosts from "../post/useGetPost";
 
 export default function SearchDrawer() {
-  const [open, setOpen] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  const showLoading = () => {
-    setOpen(true);
-    setLoading(true);
-
-    // Simple loading mock. You should add cleanup logic in real world.
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  };
+  const [loading, setLoading] = useState<boolean>(false);
+  const { isOpen, closeDrawer } = useSearchDrawer();
 
   return (
     <Drawer
@@ -21,13 +15,12 @@ export default function SearchDrawer() {
       destroyOnHidden
       title={<p>Loading Drawer</p>}
       placement="right"
-      open={open}
+      open={isOpen}
       loading={loading}
-      onClose={() => setOpen(false)}
+      onClose={() => closeDrawer()}
+      mask={false}
+      getContainer={false}
     >
-      <Button type="primary" style={{ marginBottom: 16 }} onClick={showLoading}>
-        Reload
-      </Button>
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
