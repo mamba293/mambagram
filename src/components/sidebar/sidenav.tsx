@@ -1,13 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import SideNavButton from "@/components/sidebar/SideNavButton";
 import { IoMdHome, IoMdSearch, IoMdFilm } from "react-icons/io";
 import { IoPersonOutline } from "react-icons/io5";
 import { LuMessageCircle } from "react-icons/lu";
 import { Montserrat } from "next/font/google";
 import { useSearchDrawer } from "@/context/SearchDrawerContext";
-import SearchDrawer from "../drawer/SearchDrawer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -37,7 +35,7 @@ const SideNav = () => {
             label="Home"
             route="/home"
             size={30}
-            onNavClick={() => console.log("test")}
+            onNavClick={()=>console.log()}
           />
 
           <SideNavButton

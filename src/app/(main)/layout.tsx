@@ -1,3 +1,5 @@
+'use client'
+
 import SearchDrawer from "@/components/drawer/SearchDrawer";
 import SideNav from "@/components/sidebar/sidenav";
 import { SearchDrawerProvider } from "@/context/SearchDrawerContext";
